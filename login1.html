@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+         body{
+            /* background-color: gray; */
+            background-image: url("Images/Background.jpeg");
+        }
+        .Login-box{
+            position: absolute;
+            background-color: white;
+            width:60%;
+            margin: 15%;
+        }
+         input{
+            display: block;
+            width: 80%;
+            margin: 20px;
+            border: solid 1px black;
+            padding: 10px;
+        }
+        button{
+            width: 50%;
+            padding: 5px;
+            margin: 20px;
+            background-color: turquoise;
+            border: none;
+        }
+    </style>
+    <body>
+        <main>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class = "Login-box">
+                    <h1 style="text-align: center;">Login</h1>
+                    <center>
+                        <input type="email" placeholder="Enter your email"/>
+                        <input type="password" placeholder="Enter your password"/><br>
+                    </center>
+                    <div>
+                        <a href="#" style="margin-left: 50px;">
+                        Forgot Password?</a>
+                    </div>
+                    <center><button>Login</button></center>
+                    <p style="text-align: center;">Don't have an account? <a href="#">Signup</a></p>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        </main>
+    </body>
+    </html>
