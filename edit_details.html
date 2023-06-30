@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html id = "webpage">
+    <head>
+        <title>Edit details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="main.css"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            function handleClick(){
+                // window.open('login1.html');
+            }
+        </script>
+    </head>
+    <style>
+         body{
+            background-image: url("Images/Background.jpeg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            font-family: 'Roboto';
+            font-weight: 400;
+        }
+        .Login-box{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,10vh);
+            background-color: white;
+            width:60%;
+            /* margin: 20%; */
+            padding: 0px 0px 0px 0px;
+            border: double 10px transparent;
+            border-radius: 17%;
+            background-image: linear-gradient(white, white), 
+                    linear-gradient(to right, #f6a192,  rgb(247, 125, 247), rgb(138, 189, 240));
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+           
+        }
+        .Login-box-1{
+            background-image: linear-gradient(to right, #f6a192, rgb(247, 125, 247),rgb(138, 189, 240));
+            border-radius: 14%;
+            opacity: 0.8;
+            padding: 0px 0px 0px 0px;
+            width: 100%;
+        }
+        input[type = checkbox]{
+            display: inline;
+            /* width: auto; */
+            margin-left: 3vw;
+            margin-right: 0.5vw;
+        }
+         input[type = text],input[type = password], input[type = email] {
+            display: block;
+            width: 80%;
+            height: 3vw;
+            margin: 0px 0px 10px 0px;
+            border: solid 1px black;
+            padding: 0.8vw;
+            background-color: #f0d1cb;
+            border: none;
+        }
+        button{
+            width: 50%;
+            height: 3vw;
+            padding: 0.5vw;
+            margin: 1.8vw;
+            background-color: rgb(12, 189, 233);
+            border: none;
+            color: white;
+            font-size: 1.25vw;
+        }
+        h1{
+            color: white;
+            margin: 0px;
+            padding: 0.8vw 0px 1.8vw 0px;
+            font-size: 2.5vw;
+        }
+    </style>
+    <body>
+        <main>
+        <div class="row" >
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class = "Login-box">
+                    <div class="Login-box-1">
+                        <h1 style="text-align: center;">Edit Details</h1>
+                        <form  action="" method="post" id = "edit-form">
+                            <center>
+                                <input type="email" placeholder="Enter your email" required id = "edit-email-id"/>
+                                <input type="text" placeholder="First name" required id="edit-first-name"/>
+                                <input type="text" placeholder="Last name" required id = "edit-last-name"/>
+                                <input type="password" placeholder="Enter your password" required id = "edit-passwd"/>
+                                <input type="password" placeholder="Confirm password" required/>
+                            </center>                      
+                            <center><button onclick="handleClick()">Submit</button></center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        </main>
+    </body>
+    <script>
+        document.getElementById("webpage").addEventListener("mouseleave", mouseLeave);
+        function mouseLeave() {
+            alert("Enter the details first");
+        }
+        var form = document.getElementById('edit-form');
+        form.addEventListener('submit',function (e){
+            e.preventDefault();
+            var changed_first_name = document.getElementById('edit-first-name').value;
+            var changed_last_name = document.getElementById('edit-last-name').value;
+            var changed_password= document.getElementById('edit-passwd').value;
+            var email_form = document.getElementById('edit-email-id').value;
+            fetch('http://localhost:3001/api/modifyUser', {
+                method: 'PUT',
+                body: JSON.stringify({
+                    changed_firstName: changed_first_name,
+                    email: email_form,
+                    changed_lastName: changed_last_name,
+                    changed_Password: changed_password
+                }),
+                headers:{
+                    'Content-type' : 'application/json; charset=UTF-8'
+                }
+            }).then(response => {
+                    if(response.status == 200){
+                        alert("Sucessfully changed user info!");
+                        console.log(response);
+                        console.log("User info changed successfully");
+                        window.location.href = "home.html";
+                    }
+                    else{
+                        alert("User does not exists!");
+                        console.log("Error occured while updating data!");
+                    }
+                })
+            .catch( error => {
+                console.error(error);
+            })
+        })
+    </script>
+    </html>
