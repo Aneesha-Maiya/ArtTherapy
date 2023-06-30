@@ -9,8 +9,6 @@ body {          /*background image*/
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-    background-image: url("../Images/Background.jpeg");
-    background-image: url("Images/Background.jpeg");
   }
 
 @font-face {      /*font for hero text*/
