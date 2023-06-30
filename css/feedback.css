@@ -1,0 +1,141 @@
+*{
+    margin: 0;          /* is a CSS reset or normalization technique that sets */
+    padding: 0;         /*the margin and padding of all elements in the HTML document to 0*/
+}
+
+body {          /*background image*/
+    background-image: url("images/340541.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+  }
+
+@font-face {      /*font for hero text*/
+    font-family: 'Quicksand';
+    src: url('fonts/Quicksand/Quicksand-VariableFont_wght.ttf')format('truetype');
+    font-style: normal;
+    font-weight: 500px;
+  }
+
+.feedback-box {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    margin-top: 60px;
+    margin-left: 490px;
+    padding: 20px;
+    border: 1px solid transparent;
+    border-radius: 46px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 5px 10px 26px rgba(0, 0, 0, 0.03);
+    border-radius: 46px;
+}
+
+.feedback-box h1 {
+    margin-top: 10px;
+    color: #FFF;
+    text-shadow: -9px 8px 11px rgba(250, 130, 130, 0.818);
+    font-size: 25px;
+    font-family: 'Quicksand';
+    font-weight: 600;
+
+}
+
+.feedback-box form {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.feedback-box label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#name,
+#email {
+    height: 50px;
+    width: 350px;
+    padding: 8px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.19);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#feedback {
+    height: 200px;
+    width: 350px;
+    padding: 7px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.19);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+
+.feedback-box input[type="submit"] {
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.19);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(5px);
+    font-family: 'Quicksand', sans-serif;
+    font-style: bold;
+    font-weight: 600px;
+    font-size: 25px;
+    line-height: 40px;
+    /* identical to box height */
+    color: rgba(0, 0, 0, 0.53);
+}
+
+.feedback-box input[type="submit"]:hover {
+    background-color: #CC2DA2;
+}
+
+#mini_screen {
+    position: absolute;
+    top: 130px;
+    left: 150px;
+    width: 700px;
+    height: 600px;
+    z-index: -1;
+    flex-shrink: 0;
+}
+
+#plane1{
+    position: absolute;
+    width: 98.151px;
+    height: 172.328px;
+    top: 50px;
+    right: 500px;
+    flex-shrink: 0;
+}
+
+#letter{
+    position: absolute;
+    width: 350px;
+    bottom: 44px;
+    right: 470px;
+    flex-shrink: 0;
+}
+
+
+
+
+
