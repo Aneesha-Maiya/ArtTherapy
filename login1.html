@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="main.css">
+        <!-- <link rel="stylesheet" href="main.css"> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
@@ -93,10 +93,10 @@
                 <div class = "Login-box">
                     <div class="Login-box-1">
                         <h1 style="text-align: center;">Login</h1>
-                        <form  action="">
+                        <form  action="" method="get" id = "login-form">
                             <center>
-                                <input type="email" placeholder="Enter your email" required/>
-                                <input type="password" placeholder="Enter your password" required/><br>
+                                <input type="email" placeholder="Enter your email" required id = "email_value"/>
+                                <input type="password" placeholder="Enter your password" required id = "password_value"/><br>
                             </center>
                             <div>
                                 <a href="#" style="margin-left: 40px;">
@@ -119,8 +119,36 @@
     </body>
     <script>
         function handleClick(){
-            window.location.href = "index.html";
+            //window.location.href = "index.html";
             // alert("clicked");
         }
+        var form = document.getElementById('login-form');
+        form.addEventListener('submit',function (e){
+            e.preventDefault();
+            var password_val = document.getElementById('password_value').value;
+            var email_id = document.getElementById('email_value').value;
+            fetch(`http://localhost:3001/api/getUsers/${email_id}`, {
+                method: 'GET',
+                headers:{
+                    'Content-type' : 'application/json; charset=UTF-8'
+                }
+            }).then(response => {
+                    if(response.status == 200){
+                        alert("Login Successful");
+                        console.log("Login successful");
+                        //window.location.href = "index.html";
+                    }
+                    else{
+                        alert("User does not exists!");
+                        console.log("User does not exists!");
+                    }
+                    console.log(response);
+                    var passwd_from_database = response;
+                    console.log(passwd_from_database);
+                })
+            .catch( error => {
+                console.error(error);
+            })
+        })
     </script>
     </html>
