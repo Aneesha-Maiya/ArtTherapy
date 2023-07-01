@@ -130,7 +130,7 @@
                 <ul>
                     <img src ="Images/logo.png" style="margin-right: 30vw; margin-left:0px;" class="logo"/>
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="about_us.html">ABOUT US</a></li>
+                    <li><a href="about-us.html">ABOUT US</a></li>
                     <div class="dropdown">
                         <li data-toggle="dropdown"><a>ACCOUNT</a>
                         <span class="caret"></span></li>
@@ -189,6 +189,40 @@
 <script>
     function logOut(){
         window.location.href = "signup.html"
+    }
+    function deleteUser(){
+        alert("Are you sure you want to delete your account?");
+        choice = prompt("Type yes if you want to delete your account and no if you want to cancel the process");
+        if(choice === "yes" || choice === "YES"){
+            email_value = prompt("Enter your email-id to continue");
+            fetch('http://localhost:3001/api/deleteUser',{
+                method: 'DELETE',
+                body: JSON.stringify({
+                    email: email_value,
+                }),
+                headers:{
+                    'Content-type' : 'application/json; charset=UTF-8'
+                }
+            }).then(response => {
+                    if(response.status == 200){
+                        alert("Sucessfully Deleted User");
+                        console.log(response);
+                        console.log("User deleted successfully");
+                        window.location.href = "index.html";
+                    }
+                    else{
+                        alert("User doesn't exists!");
+                        console.log("User does not exists!");
+                    }
+                })
+            .catch( error => {
+                console.error(error);
+            })
+        }
+        else{
+            alert("Failed to delete your account");
+            window.location.href = "index.html";
+        }
     }
 </script>
 </html>

@@ -1,5 +1,6 @@
 const express = require("express");
 const userModel = require("../Models/userModel");
+const suggesstionModel = require("../Models/suggestionModel")
 
 exports.getUser = (req,res) => {
     const users = userModel.find()
@@ -33,6 +34,20 @@ exports.postUsers = (req,res) => {
         console.log(req.body);
         console.log("User created Successfully");
         res.status(200).send("Signup done successfully");
+    })
+    .catch(error => {
+        console.error(error);
+        res.status(500).send("Error posting data");
+    })
+}
+
+exports.postSuggestions = (req,res) => {
+    const feedback = new suggesstionModel(req.body);
+    feedback.save()
+    .then(() => {
+        console.log(req.body);
+        console.log("Suggestion saved Successfully");
+        res.status(200).send("Suggestions saved successfully");
     })
     .catch(error => {
         console.error(error);
