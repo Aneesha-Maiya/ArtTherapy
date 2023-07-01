@@ -132,7 +132,7 @@
                 headers:{
                     'Content-type' : 'application/json; charset=UTF-8'
                 }
-            }).then(response => {
+            }).then((response) => {
                     if(response.status == 200){
                         alert("Login Successful");
                         console.log("Login successful");
@@ -143,7 +143,7 @@
                         console.log("User does not exists!");
                     }
                     console.log(response);
-                    var passwd_from_database = response;
+                    var passwd_from_database = response.password;
                     console.log(passwd_from_database);
                 })
             .catch( error => {

@@ -5,12 +5,14 @@ const suggesstionModel = require("../Models/suggestionModel")
 exports.getUser = (req,res) => {
     const users = userModel.findOne(
     {email: req.params.email})
-    .then(user => {
-        if(!user){
+    .then((data) => {
+        if(!users){
             return res.status(404).send("User not found!")
         }
-        res.json(user);
+        console.log("Data:",data)
+        // res.json(users);
         console.log("User data obtained Successfully");
+        res.status(200).send(data);
     })
     .catch(error => {
         console.error(error);
