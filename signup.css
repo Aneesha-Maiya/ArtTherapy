@@ -1,0 +1,155 @@
+*{
+    margin: 0;          /* is a CSS reset or normalization technique that sets */
+    padding: 0;         /*the margin and padding of all elements in the HTML document to 0*/
+}
+
+@font-face {      /*font for hero text*/
+    font-family: 'Quicksand';
+    src: url('fonts/Quicksand/Quicksand-VariableFont_wght.ttf')format('truetype');
+    font-style: normal;
+    font-weight: 600;
+  }
+
+body {          /*background image*/
+    background-image: url("images/340541.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+  }
+
+.signup-box {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    margin-top: 116px;
+    margin-left: 490px;
+    padding: 20px;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 5px 10px 26px rgba(0, 0, 0, 0.10);
+    border-radius: 100px;
+}
+
+.signup-box h1 {
+    font-family: 'Italiana';
+    font-style: normal;
+    font-weight: 500px;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: rgba(101, 11, 124, 0.78);
+    border: 1px solid transparent;
+}
+
+.signup-box form {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.signup-box label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"] {
+    height: 50px;
+    width: 350px;
+    padding: 8px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.19);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.signup-box input[type="submit"] {
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.19);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(5px);
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 350px;
+    font-size: 20px;
+    line-height: 40px;
+    /* identical to box height */
+    color: rgba(0, 0, 0, 0.53);
+}
+
+.signup-box input[type="submit"]:hover {
+    background-color: #CC2DA2;
+}
+
+.alternative-signup-text{
+    position: absolute;
+    width: 183px;
+    height: 30px;
+    left: 60%;
+    bottom: 80px;
+    transform: translateX(-50%);
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #D9D9D9;
+}
+
+.alternative-signup{
+    position: absolute;
+    width: 180px;
+    height: 20px;
+    left: 50%;
+    bottom: 55px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.alternative-signup a {
+    margin: 2.0px;
+}
+
+.alternative-signup img {
+    max-width: 40px; /* Adjust the size of the images as needed */
+    height: auto;
+}
+
+
+/*styling for two sparkle elements on signup box*/
+#sparkle_1 {
+    position: absolute;
+    width: 88px;
+    height: 84px;
+    right: 380px;
+    top: 10px;
+    background: url(images/Rectangle\ 6.png);
+    mix-blend-mode: normal;
+}
+
+#sparkle_2 {
+    position: absolute;
+    width: 88px;
+    height: 84px;
+    left: 400px;
+    bottom: 40px;
+    background: url(images/Rectangle\ 6.png);
+    mix-blend-mode: normal;
+}
