@@ -108,6 +108,7 @@
                             <li><a href="login1.html">LOGIN</a></li>
                             <li><a href = "edit_details.html">EDIT ACCOUNT</a></li>
                             <li><a href="#">DELETE ACCOUNT</a></li>
+                            <li onclick="logOut()"><a href="#">LOG-OUT</a></li>
                         </ul>
                     </div>
                     <li><a href = "feedback.html">SUGGESTIONS</a></li>
@@ -131,4 +132,9 @@
         </div>
     </main>
 </body>
+<script>
+    function logOut(){
+        window.location.href = "signup.html"
+    }
+</script>
 </html>

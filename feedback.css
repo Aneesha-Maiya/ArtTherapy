@@ -135,7 +135,40 @@ body {          /*background image*/
     flex-shrink: 0;
 }
 
+ul{
+    display: flex;
+    list-style: none;
+    /* float: right; */
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+ li a{
+    font-family: 'Italiana';
+    font-weight: 500;
+    font-size: 1.5vw;
+    color: rgba(101, 11, 124, 0.78);
+    /* margin-left: 3vw; */
+    text-align: center;
+}
+ul img{
+    height: 2.6vw;
+    width: 3.2vw;
+}
+nav { 
+    background: linear-gradient(to right,rgba(246, 161, 146,0.2), 
+     rgba(247, 125, 247,0.2), rgba(138, 189, 240,0.2));
+    opacity: 1.0;
+    /* box-shadow: 1px 1px rgb(247, 125, 247); */
+    mix-blend-mode: normal;
+    padding: 0.5vw 0px 0.5vw 0px; 
+    margin-bottom: 0px;
+}
 
-
+#dropdown_menu{
+    background: linear-gradient(to right,rgba(246, 161, 146,0.2), 
+     rgba(247, 125, 247,0.2), rgba(138, 189, 240,0.2));
+}
 
 

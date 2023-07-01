@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="feedback.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <img src ="Images/logo.png" style="margin-right: 30vw; margin-left:0px;" class="logo"/>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about_us.html">ABOUT US</a></li>
+            <div class="dropdown">
+                <li data-toggle="dropdown"><a>ACCOUNT</a>
+                <span class="caret"></span></li>
+                <ul class="dropdown-menu" id = "dropdown_menu">
+                    <li><a href="signup.html">SIGN-UP</a></li>
+                    <li><a href="login1.html">LOGIN</a></li>
+                    <li><a href = "edit_details.html">EDIT ACCOUNT</a></li>
+                    <li><a href="#">DELETE ACCOUNT</a></li>
+                    <li onclick="logOut()"><a href="#">LOG-OUT</a></li>
+                </ul>
+            </div>
+            <li><a href = "feedback.html">SUGGESTIONS</a></li>
+        </ul>
+    </nav>
     <div class="feedback-box" >
         <h1>Drop any suggestions below, To provide better experience.</h1>
         <form>
@@ -19,7 +38,7 @@
             <label for="feedback"></label>
             <input type="text" id="feedback" name="feedback" placeholder="Message" required>
             
-            <input type="submit" value="submit">
+            <input type="submit" value="submit" onclick="handleClick()">
 
         </form>
     </div>
@@ -30,4 +49,13 @@
 
 
 </body>
+<script>
+    function logOut(){
+        window.location.href = "signup.html"
+    }
+    function handleClick(){
+        window.location.href = "index.html";
+        // alert("clicked");
+    }
+</script>
 </html>
