@@ -28,7 +28,7 @@
                     <li><a href="signup.html">SIGN-UP</a></li>
                     <li><a href="login1.html">LOGIN</a></li>
                     <li><a href = "edit_details.html">EDIT ACCOUNT</a></li>
-                    <li><a href="#">DELETE ACCOUNT</a></li>
+                    <li onclick="deleteUser()"><a href="#">DELETE ACCOUNT</a></li>
                     <li onclick="logOut()"><a href="#">LOG-OUT</a></li>
                 </ul>
             </div>
@@ -63,8 +63,42 @@
         window.location.href = "signup.html"
     }
     function handleClick(){
-        window.location.href = "index.html";
+        //window.location.href = "index.html";
         // alert("clicked");
+    }
+    function deleteUser(){
+        alert("Are you sure you want to delete your account?");
+        choice = prompt("Type yes if you want to delete your account and no if you want to cancel the process");
+        if(choice === "yes" || choice === "YES"){
+            email_value = prompt("Enter your email-id to continue");
+            fetch('http://localhost:3001/api/deleteUser',{
+                method: 'DELETE',
+                body: JSON.stringify({
+                    email: email_value,
+                }),
+                headers:{
+                    'Content-type' : 'application/json; charset=UTF-8'
+                }
+            }).then(response => {
+                    if(response.status == 200){
+                        alert("Sucessfully Deleted User");
+                        console.log(response);
+                        console.log("User deleted successfully");
+                        window.location.href = "index.html";
+                    }
+                    else{
+                        alert("User doesn't exists!");
+                        console.log("User does not exists!");
+                    }
+                })
+            .catch( error => {
+                console.error(error);
+            })
+        }
+        else{
+            alert("Failed to delete your account");
+            window.location.href = "index.html";
+        }
     }
 </script>
 </html>

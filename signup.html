@@ -9,26 +9,26 @@
 <body>
     <div class="signup-box">        <!--sign up box content-->
         <h1>Sign Up</h1>
-        <form>
+        <form id = "signup-form">
             <label for="name"></label>
-            <input type="text" id="name" name="name" placeholder="Username" required>
+            <input type="text" id="name" name="name" placeholder="Username" required id = "first-name">
             
             <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="email" id="email" name="email" placeholder="Email" required id = "email-id">
             
             <label for="password"></label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="password" name="password" placeholder="Password" required id = "passwd">
             
             <input type="submit" value="Sign Up">
 
             <p class="alternative-signup-text">Or sign up using</p>
             <div class="alternative-signup">
-                <a href="google-signup.html" target="_blank"><img src="images/Google.png" alt="google-signup"></a> 
-                <a href="facebook-signup.html" target="_blank"><img src="images/Facebook (1).png" alt="facebook-signup"></a>
+                <a href="google-signup.html" target="_blank"><img src="Images/Google.png" alt="google-signup"></a> 
+                <a href="facebook-signup.html" target="_blank"><img src="Images/Facebook (1).png" alt="facebook-signup"></a>
         </form>
     </div>
 
-    <img src="Images/" alt="sparkle" id="sparkle_1">
+    <img src="Images/Rectangle 6.png" alt="sparkle" id="sparkle_1">
     <img src="Images/Rectangle 6.png" alt="sparkle" id="sparkle_2">
 
 </body>
@@ -51,7 +51,6 @@
             body: JSON.stringify({
                 firstname: first_name,
                 email: email_form,
-                lastname: last_name,
                 password: password_form
             }),
             headers:{
