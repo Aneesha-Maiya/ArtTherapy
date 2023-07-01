@@ -14,10 +14,10 @@
             <input type="text" id="name" name="name" placeholder="Username" required id = "first-name">
             
             <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Email" required id = "email-id">
+            <input type="email" id="email" name="email" placeholder="Email" required >
             
             <label for="password"></label>
-            <input type="password" id="password" name="password" placeholder="Password" required id = "passwd">
+            <input type="password" id="password" name="password" placeholder="Password" required>
             
             <input type="submit" value="Sign Up">
 
@@ -33,23 +33,16 @@
 
 </body>
 <script>
-    // window.onmousemove(alert("Mouse move"));
-    document.getElementById("webpage").addEventListener("mouseleave", mouseLeave);
-    function mouseLeave() {
-        // document.getElementById("webpage").style.background = "blue";
-        // alert("Enter the details first");
-    }
     var form = document.getElementById('signup-form');
     form.addEventListener('submit',function (e){
         e.preventDefault();
-        var first_name = document.getElementById('first-name').value;
-        var last_name = document.getElementById('last-name').value;
-        var password_form = document.getElementById('passwd').value;
-        var email_form = document.getElementById('email-id').value;
+        var first_name = document.getElementById('name').value;
+        var password_form = document.getElementById('password').value;
+        var email_form = document.getElementById('email').value;
         fetch('http://localhost:3001/api/postUser', {
             method: 'POST',
             body: JSON.stringify({
-                firstname: first_name,
+                name: first_name,
                 email: email_form,
                 password: password_form
             }),
