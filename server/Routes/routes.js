@@ -8,6 +8,6 @@ router.get('/getUserByID/:id',control.getByid);
 router.post('/postUser',control.postUsers);
 router.delete('/deleteUser',control.deleteUsers);
 router.put('/modifyUser',control.modifyUsers);
-router.put('/userSuggestion',control.postSuggestions);
+router.post('/userSuggestion',control.postSuggestions);
 
 module.exports = router;

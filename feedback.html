@@ -37,7 +37,7 @@
     </nav>
     <div class="feedback-box" >
         <h1>Drop any suggestions below, To provide better experience.</h1>
-        <form>
+        <form id="suggestion-form">
             <label for="name"></label>
             <input type="text" id="name" name="name" placeholder="Name" required>
             
@@ -100,5 +100,37 @@
             window.location.href = "index.html";
         }
     }
+    var form = document.getElementById('suggestion-form');
+    form.addEventListener('submit',function (e){
+        e.preventDefault();
+        var first_name = document.getElementById('name').value;
+        var feedback_form = document.getElementById('feedback').value;
+        var email_form = document.getElementById('email').value;
+        fetch('http://localhost:3001/api/userSuggestion', {
+            method: 'POST',
+            body: JSON.stringify({
+                name: first_name,
+                message: feedback_form,
+                email: email_form,
+            }),
+            headers:{
+                'Content-type' : 'application/json; charset=UTF-8'
+            }
+        }).then(response => {
+                if(response.status == 200){
+                    alert("Suggestion submitted successfully");
+                    console.log(response);
+                    console.log("Suggestion submitted successfully");
+                    window.location.href = "index.html";
+                }
+                else{
+                    alert("Suggestion failed to submit");
+                    console.log("Suggestion failed to submit");
+                }
+            })
+        .catch( error => {
+            console.error(error);
+        })
+    })
 </script>
 </html>
