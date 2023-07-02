@@ -35,6 +35,10 @@
 <script>
     var form = document.getElementById('signup-form');
     form.addEventListener('submit',function (e){
+        const Signup = {
+            isSigned: false,
+        }
+    console.log(Signup);
         e.preventDefault();
         var first_name = document.getElementById('name').value;
         var password_form = document.getElementById('password').value;
@@ -55,15 +59,24 @@
                     console.log(response);
                     console.log("Sign up successful");
                     window.location.href = "login1.html";
+                    console.log("before",Signup.isSigned);
+                    Signup.isSigned = true;
+                    console.log("After",Signup.isSigned);
+                    window.localStorage.setItem("key1",JSON.stringify(Signup));
                 }
                 else{
                     alert("User already exists!");
                     console.log("User already exists!");
+                    Signup.isSigned = false;
+                    window.localStorage.setItem("key1",JSON.stringify(Signup));
                 }
             })
         .catch( error => {
             console.error(error);
-        })
+        })  
+        // window.localStorage.setItem("key1",JSON.stringify(Signup));
+        var LsValue = window.localStorage.getItem("key1");
+        console.log(LsValue);
     })
 </script>
 </html>

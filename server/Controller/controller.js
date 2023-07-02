@@ -1,25 +1,34 @@
 const express = require("express");
 const userModel = require("../Models/userModel");
 const suggesstionModel = require("../Models/suggestionModel")
+var userData;
 
 exports.getUser = (req,res) => {
     const users = userModel.findOne(
     {email: req.params.email})
     .then((data) => {
-        if(!users){
+        if(data === null){
+            console.log("User does not exists");
             return res.status(404).send("User not found!")
         }
         console.log("Data:",data)
+        console.log("Password:",req.params.password);
         // res.json(users);
+        // userData = data;
+        if(req.params.password != data.password){
+            console.log("Invalid username or password");
+            return res.status(400).send("Invalid username or password")
+        } 
         console.log("User data obtained Successfully");
         res.status(200).send(data);
+        return data;
     })
     .catch(error => {
         console.error(error);
         res.status(500).send("Error retriving data");
     })
 }
-
+exports.userData;
 exports.getByid = (req,res) => {
     userModel.findById(req.params.id)
     .then(user => {

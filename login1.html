@@ -118,16 +118,23 @@
         </main>
     </body>
     <script>
+        // localStorage.clear();
+        var LsValue1 = localStorage.getItem("key1");
+        console.log(LsValue1);
         function handleClick(){
             //window.location.href = "index.html";
             // alert("clicked");
         }
         var form = document.getElementById('login-form');
+        const Login = {
+            isLogged: false,
+        }
+        console.log(Login)
         form.addEventListener('submit',function (e){
             e.preventDefault();
             var password_val = document.getElementById('password_value').value;
             var email_id = document.getElementById('email_value').value;
-            fetch(`http://localhost:3001/api/getUsers/${email_id}`, {
+            fetch(`http://localhost:3001/api/getUsers/${email_id}/${password_val}`, {
                 method: 'GET',
                 headers:{
                     'Content-type' : 'application/json; charset=UTF-8'
@@ -136,19 +143,28 @@
                     if(response.status == 200){
                         alert("Login Successful");
                         console.log("Login successful");
-                        //window.location.href = "index.html";
+                        window.location.href = "index.html";
+                        Login.isLogged =true;
+                        window.localStorage.setItem("key2",JSON.stringify(Login));
+                    }
+                    else if(response.status === 400){
+                        alert("Invalid Username or Password");
+                        console.log("Invalid Username or Password");
+                        Login.isLogged = false;
+                        window.localStorage.setItem("key2",JSON.stringify(Login));
                     }
                     else{
                         alert("User does not exists!");
                         console.log("User does not exists!");
+                        Login.isLogged = false;
+                        window.localStorage.setItem("key2",JSON.stringify(Login));
                     }
-                    console.log(response);
-                    var passwd_from_database = response.password;
-                    console.log(passwd_from_database);
                 })
             .catch( error => {
                 console.error(error);
             })
+            var ValueLs = window.localStorage.getItem("key2");
+            console.log(ValueLs);
         })
     </script>
     </html>
